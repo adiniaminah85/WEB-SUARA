@@ -1,0 +1,425 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SUARA | Partisipasi Publik</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f5f7f6;
+    color: #263b36;
+    line-height: 1.6;
+}
+
+header {
+    background: #123c32;
+    color: white;
+    padding: 18px 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.logo {
+    font-size: 27px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin-left: 20px;
+    font-size: 14px;
+}
+
+nav a:hover {
+    color: #b8d9c5;
+}
+
+.hero {
+    background: linear-gradient(120deg, #123c32, #276b54);
+    color: white;
+    padding: 85px 8%;
+}
+
+.hero h1 {
+    font-size: 42px;
+    max-width: 700px;
+    line-height: 1.2;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    max-width: 620px;
+    color: #e0eee6;
+    margin-bottom: 28px;
+}
+
+.btn {
+    display: inline-block;
+    background: #e5c77b;
+    color: #183b30;
+    border: none;
+    padding: 13px 23px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background: #f2d995;
+}
+
+.container {
+    padding: 55px 8%;
+}
+
+.section-title {
+    margin-bottom: 25px;
+}
+
+.section-title h2 {
+    font-size: 27px;
+    color: #174b3b;
+}
+
+.section-title p {
+    color: #66766f;
+}
+
+.stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+}
+
+.card {
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    border: 1px solid #e2eae5;
+    box-shadow: 0 3px 12px #173c3210;
+}
+
+.card h3 {
+    color: #245b45;
+    margin-bottom: 8px;
+}
+
+.number {
+    font-size: 32px;
+    font-weight: bold;
+    color: #174b3b;
+}
+
+.policy {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.tag {
+    display: inline-block;
+    background: #e5f1e9;
+    color: #276b48;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    margin-bottom: 12px;
+}
+
+form {
+    display: grid;
+    gap: 14px;
+    margin-top: 15px;
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccd8d0;
+    border-radius: 6px;
+    font-size: 14px;
+    font-family: Arial, sans-serif;
+}
+
+textarea {
+    min-height: 110px;
+    resize: vertical;
+}
+
+button {
+    font-family: inherit;
+}
+
+.result {
+    background: #edf5ef;
+    padding: 15px;
+    border-radius: 7px;
+    margin-top: 15px;
+    display: none;
+}
+
+footer {
+    background: #123c32;
+    color: white;
+    text-align: center;
+    padding: 30px 15px;
+}
+
+footer p {
+    color: #d0e0d7;
+    font-size: 13px;
+}
+
+@media(max-width: 700px) {
+    header {
+        flex-direction: column;
+    }
+
+    nav a {
+        margin: 5px;
+        display: inline-block;
+    }
+
+    .hero h1 {
+        font-size: 32px;
+    }
+
+    .stats, .policy {
+        grid-template-columns: 1fr;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">SUARA.</div>
+
+    <nav>
+        <a href="#beranda">Beranda</a>
+        <a href="#kebijakan">Kebijakan</a>
+        <a href="#aspirasi">Aspirasi</a>
+        <a href="#tracking">Tracking</a>
+    </nav>
+</header>
+
+<section class="hero" id="beranda">
+    <h1>Suara Masyarakat, Arah Kebijakan.</h1>
+
+    <p>
+        Ruang partisipasi publik untuk menyampaikan aspirasi,
+        memberikan masukan terhadap rancangan kebijakan,
+        dan mengawal proses pembentukan peraturan.
+    </p>
+
+    <a href="#kebijakan" class="btn">Jelajahi Kebijakan →</a>
+</section>
+
+<section class="container">
+    <div class="section-title">
+        <h2>Partisipasi yang Bermakna</h2>
+        <p>Demokrasi membutuhkan suara yang didengar dan dipertimbangkan.</p>
+    </div>
+
+    <div class="stats">
+        <div class="card">
+            <div class="number">03</div>
+            <p>Contoh rancangan kebijakan</p>
+        </div>
+
+        <div class="card">
+            <div class="number" id="jumlah">128</div>
+            <p>Contoh aspirasi masyarakat</p>
+        </div>
+
+        <div class="card">
+            <div class="number">76%</div>
+            <p>Contoh respons aspirasi</p>
+        </div>
+    </div>
+</section>
+
+<section class="container" id="kebijakan">
+    <div class="section-title">
+        <h2>Rancangan Kebijakan</h2>
+        <p>Kenali rancangan kebijakan dan berikan masukanmu.</p>
+    </div>
+
+    <div class="policy">
+
+        <div class="card">
+            <span class="tag">Contoh rancangan</span>
+            <h3>Rancangan Undang-Undang Pendidikan</h3>
+            <p>Ruang partisipasi masyarakat terhadap kebijakan pendidikan.</p>
+            <br>
+            <a href="#aspirasi" class="btn">Berikan Masukan</a>
+        </div>
+
+        <div class="card">
+            <span class="tag">Contoh rancangan</span>
+            <h3>Rancangan Kebijakan Lingkungan</h3>
+            <p>Partisipasi publik dalam penguatan perlindungan lingkungan.</p>
+            <br>
+            <a href="#aspirasi" class="btn">Berikan Masukan</a>
+        </div>
+
+        <div class="card">
+            <span class="tag">Contoh rancangan</span>
+            <h3>Rancangan Kebijakan Kepemudaan</h3>
+            <p>Mendorong keterlibatan pemuda dalam kebijakan publik.</p>
+            <br>
+            <a href="#aspirasi" class="btn">Berikan Masukan</a>
+        </div>
+
+    </div>
+</section>
+
+<section class="container" id="aspirasi">
+    <div class="section-title">
+        <h2>Ruang Aspirasi</h2>
+        <p>Sampaikan pendapatmu terhadap rancangan kebijakan.</p>
+    </div>
+
+    <div class="card">
+        <h3>Formulir Penyampaian Aspirasi</h3>
+
+        <form id="formAspirasi">
+
+            <input
+                type="text"
+                id="nama"
+                placeholder="Nama atau nama samaran"
+                required
+            >
+
+            <select id="kebijakan" required>
+                <option value="">Pilih rancangan kebijakan</option>
+                <option>RUU Pendidikan</option>
+                <option>Kebijakan Lingkungan</option>
+                <option>Kebijakan Kepemudaan</option>
+            </select>
+
+            <input
+                type="text"
+                id="pasal"
+                placeholder="Pasal yang ingin dikomentari"
+                required
+            >
+
+            <textarea
+                id="masukan"
+                placeholder="Tuliskan aspirasi dan alasanmu..."
+                required
+            ></textarea>
+
+            <button type="submit" class="btn">
+                Kirim Aspirasi
+            </button>
+        </form>
+
+        <div class="result" id="hasil">
+        </div>
+    </div>
+</section>
+
+<section class="container" id="tracking">
+    <div class="section-title">
+        <h2>Tracking Aspirasi</h2>
+        <p>Pantau perkembangan aspirasi melalui identitas jejak.</p>
+    </div>
+
+    <div class="card">
+        <h3>Lacak Aspirasi</h3>
+
+        <form id="formTracking">
+            <input
+                type="text"
+                id="kode"
+                placeholder="Masukkan kode aspirasi"
+                required
+            >
+
+            <button type="submit" class="btn">
+                Lacak Sekarang
+            </button>
+        </form>
+
+        <div class="result" id="hasilTracking">
+        </div>
+    </div>
+</section>
+
+<footer>
+    <h2>SUARA.</h2>
+    <p>
+        Sistem Utama Aspirasi, Representasi, dan Akuntabilitas.
+    </p>
+    <p>Prototipe inovasi digital partisipasi publik.</p>
+    <br>
+    <p>© 2026 SUARA. Prototype Demonstration.</p>
+</footer>
+
+<script>
+let jumlahAspirasi = 128;
+
+document.getElementById("formAspirasi")
+.addEventListener("submit", function(event) {
+
+    event.preventDefault();
+
+    jumlahAspirasi++;
+
+    let kode = "SUA-" + Date.now().toString().slice(-6);
+
+    document.getElementById("jumlah").textContent =
+        jumlahAspirasi;
+
+    document.getElementById("hasil").style.display = "block";
+
+    document.getElementById("hasil").innerHTML =
+        "<strong>Aspirasi berhasil dicatat dalam simulasi!</strong>" +
+        "<br>Kode aspirasi: <strong>" + kode + "</strong>" +
+        "<br>Status: Menunggu tanggapan (simulasi)." +
+        "<br><br><small>Simpan kode tersebut untuk mencoba fitur tracking.</small>";
+
+    document.getElementById("kode").value = kode;
+
+    this.reset();
+});
+
+document.getElementById("formTracking")
+.addEventListener("submit", function(event) {
+
+    event.preventDefault();
+
+    let kode = document.getElementById("kode").value;
+
+    document.getElementById("hasilTracking").style.display =
+        "block";
+
+    document.getElementById("hasilTracking").innerHTML =
+        "<strong>Data simulasi ditemukan.</strong>" +
+        "<br>Kode: " + kode +
+        "<br>Status: Menunggu tanggapan lembaga." +
+        "<br>Catatan: Ini merupakan demonstrasi, bukan pelacakan database nyata.";
+});
+</script>
+
+</body>
+</html>
