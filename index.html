@@ -5,421 +5,349 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>SUARA | Partisipasi Publik</title>
-
 <style>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+:root {
+  --red:#d71920;
+  --black:#090909;
+  --panel:#171313;
+  --white:#f8f5f5;
 }
-
-body {
-    font-family: Arial, sans-serif;
-    background: #f5f7f6;
-    color: #263b36;
-    line-height: 1.6;
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;background:var(--black);color:var(--white);
+  font-family:Arial,Helvetica,sans-serif
 }
-
-header {
-    background: #123c32;
-    color: white;
-    padding: 18px 7%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 15px;
+button{font:inherit;cursor:pointer}
+.app{min-height:100vh;display:grid;grid-template-columns:245px 1fr}
+.sidebar{
+  background:#070707;border-right:2px solid var(--red);
+  padding:25px 17px;display:flex;flex-direction:column;gap:24px
 }
-
-.logo {
-    font-size: 27px;
-    font-weight: bold;
-    letter-spacing: 1px;
+.brand{text-align:center;padding-bottom:20px;border-bottom:1px solid #444}
+.brand-mark{font-size:45px;color:#e5c16d}
+.brand h1{font-size:32px;margin:7px 0}
+.brand h1 span{color:var(--red)}
+.brand p{font-size:12px;color:#ccc;line-height:1.5}
+.nav{display:grid;gap:8px}
+.nav button{
+  border:0;background:transparent;color:white;text-align:left;
+  padding:13px;border-radius:9px
 }
-
-nav a {
-    color: white;
-    text-decoration: none;
-    margin-left: 20px;
-    font-size: 14px;
+.nav button:hover,.nav button.active{
+  background:linear-gradient(90deg,#d71920,#501014)
 }
-
-nav a:hover {
-    color: #b8d9c5;
+.side-note{margin-top:auto;color:#bbb;font-style:italic}
+main{min-width:0}
+.topbar{
+  height:61px;background:#100d0d;border-bottom:1px solid #444;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 25px;position:sticky;top:0;z-index:5
 }
-
-.hero {
-    background: linear-gradient(120deg, #123c32, #276b54);
-    color: white;
-    padding: 85px 8%;
+.role{background:var(--red);border:0;border-radius:20px;color:white;padding:10px 15px}
+.hero{
+  min-height:420px;padding:70px 42px;display:flex;align-items:center;
+  background-image:
+  linear-gradient(90deg,rgba(8,5,5,.94),rgba(30,5,7,.72),rgba(0,0,0,.25)),
+  url('mk.jpg');
+  background-size:cover;background-position:center;
+  border-bottom:5px solid var(--red)
 }
-
-.hero h1 {
-    font-size: 42px;
-    max-width: 700px;
-    line-height: 1.2;
-    margin-bottom: 20px;
+.hero-content{max-width:720px}
+.eyebrow{color:#f1c86f;text-transform:uppercase;letter-spacing:2px;font-weight:bold;font-size:12px}
+.hero h2{font-size:clamp(34px,5vw,58px);line-height:1.08}
+.hero h2 span{color:#f02029}
+.hero p{font-size:19px;line-height:1.6;max-width:650px}
+.primary{
+  display:inline-block;background:var(--red);color:white;
+  border:0;border-radius:9px;padding:15px 21px;
+  font-weight:bold;margin-top:10px
 }
-
-.hero p {
-    max-width: 620px;
-    color: #e0eee6;
-    margin-bottom: 28px;
+.primary:hover{background:#f02a32}
+.content{padding:30px;background:linear-gradient(#130e0f,#090909)}
+.section-heading{margin-bottom:20px}
+.section-heading p,.page-intro{color:#c9bebe;line-height:1.6}
+.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:15px}
+.service-card{
+  min-height:145px;text-align:left;color:white;
+  background:linear-gradient(145deg,#211819,#0d0b0b);
+  border:1px solid #8e171d;border-radius:14px;
+  padding:19px;transition:.2s
 }
-
-.btn {
-    display: inline-block;
-    background: #e5c77b;
-    color: #183b30;
-    border: none;
-    padding: 13px 23px;
-    border-radius: 6px;
-    text-decoration: none;
-    font-weight: bold;
-    cursor: pointer;
+.service-card:hover{transform:translateY(-4px);border-color:#ff3038}
+.service-card .big{font-size:28px}
+.service-card h3{font-size:17px}
+.service-card p{font-size:13px;line-height:1.5;color:#ccc}
+.process{
+  margin-top:28px;padding:23px;border:1px solid #68151a;
+  border-radius:15px;background:#100c0c
 }
-
-.btn:hover {
-    background: #f2d995;
+.process-head{display:flex;justify-content:space-between;align-items:center;gap:15px}
+.process-head p{color:#bbb}
+.outline{
+  border:1px solid var(--red);color:white;background:transparent;
+  border-radius:9px;padding:10px 14px
 }
-
-.container {
-    padding: 55px 8%;
+.timeline{
+  display:grid;grid-template-columns:repeat(8,minmax(100px,1fr));
+  gap:7px;margin-top:28px;overflow-x:auto;padding-bottom:8px
 }
-
-.section-title {
-    margin-bottom: 25px;
+.stage{min-width:100px;background:transparent;color:white;border:0;text-align:center;padding:4px}
+.stage .num{
+  display:grid;place-items:center;margin:auto auto 12px;
+  width:32px;height:32px;border-radius:50%;background:var(--red);
+  font-weight:bold
 }
-
-.section-title h2 {
-    font-size: 27px;
-    color: #174b3b;
+.stage .symbol{font-size:25px;display:block;margin-bottom:8px}
+.stage strong{font-size:12px;line-height:1.4;display:block}
+.stage:hover .num,.stage.selected .num{background:#f5c967;color:#170c0c}
+.detail{
+  display:none;margin-top:16px;padding:17px;
+  background:#211718;border-left:4px solid var(--red);border-radius:8px
 }
-
-.section-title p {
-    color: #66766f;
+.detail.show{display:block}
+.detail p{color:#ddd;line-height:1.5}
+.page{display:none;min-height:470px;padding:35px;background:#100d0d}
+.page.active{display:block}
+.page h2{font-size:30px}
+.panel{
+  max-width:850px;background:#1c1617;border:1px solid #682026;
+  border-radius:14px;padding:22px;margin-top:20px
 }
-
-.stats {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 18px;
+label{display:block;margin:14px 0 7px;font-weight:bold}
+input,textarea,select{
+  width:100%;padding:12px;border-radius:8px;
+  border:1px solid #6d5557;background:#0c0a0a;color:white
 }
-
-.card {
-    background: white;
-    padding: 25px;
-    border-radius: 10px;
-    border: 1px solid #e2eae5;
-    box-shadow: 0 3px 12px #173c3210;
+textarea{min-height:110px}
+.notice{color:#cbbdbd;font-size:13px;line-height:1.5}
+.tracking-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:20px}
+.track-step{
+  background:#201718;border:1px solid #6b2025;
+  padding:15px;border-radius:10px;flex:1;min-width:150px
 }
-
-.card h3 {
-    color: #245b45;
-    margin-bottom: 8px;
+footer{padding:20px;color:#aaa;background:#080707;font-size:12px}
+@media(max-width:1050px){
+  .app{grid-template-columns:205px 1fr}
+  .cards{grid-template-columns:repeat(2,1fr)}
 }
-
-.number {
-    font-size: 32px;
-    font-weight: bold;
-    color: #174b3b;
-}
-
-.policy {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-}
-
-.tag {
-    display: inline-block;
-    background: #e5f1e9;
-    color: #276b48;
-    padding: 5px 12px;
-    border-radius: 20px;
-    font-size: 12px;
-    margin-bottom: 12px;
-}
-
-form {
-    display: grid;
-    gap: 14px;
-    margin-top: 15px;
-}
-
-input, select, textarea {
-    width: 100%;
-    padding: 12px;
-    border: 1px solid #ccd8d0;
-    border-radius: 6px;
-    font-size: 14px;
-    font-family: Arial, sans-serif;
-}
-
-textarea {
-    min-height: 110px;
-    resize: vertical;
-}
-
-button {
-    font-family: inherit;
-}
-
-.result {
-    background: #edf5ef;
-    padding: 15px;
-    border-radius: 7px;
-    margin-top: 15px;
-    display: none;
-}
-
-footer {
-    background: #123c32;
-    color: white;
-    text-align: center;
-    padding: 30px 15px;
-}
-
-footer p {
-    color: #d0e0d7;
-    font-size: 13px;
-}
-
-@media(max-width: 700px) {
-    header {
-        flex-direction: column;
-    }
-
-    nav a {
-        margin: 5px;
-        display: inline-block;
-    }
-
-    .hero h1 {
-        font-size: 32px;
-    }
-
-    .stats, .policy {
-        grid-template-columns: 1fr;
-    }
+@media(max-width:700px){
+  .app{display:block}
+  .sidebar{padding:12px;gap:10px}
+  .brand{display:flex;align-items:center;text-align:left;gap:12px}
+  .brand p,.side-note{display:none}
+  .nav{display:flex;overflow-x:auto}
+  .nav button{white-space:nowrap;padding:10px}
+  .hero{padding:45px 22px;min-height:360px}
+  .content{padding:22px 15px}
+  .cards{grid-template-columns:1fr}
+  .process-head{align-items:flex-start;flex-direction:column}
+  .page{padding:24px 16px}
 }
 </style>
 </head>
-
 <body>
+<div class="app">
+<aside class="sidebar">
+  <div class="brand">
+    <div class="brand-mark">⚖</div>
+    <div>
+      <h1>SU<span>ARA</span></h1>
+      <p>Sistem Utama Aspirasi, Representasi, dan Akuntabilitas</p>
+    </div>
+  </div>
+  <nav class="nav">
+    <button class="active" data-page="dashboard">⌂ Dashboard</button>
+    <button data-page="kebijakan">▤ Rancangan Kebijakan</button>
+    <button data-page="aspirasi">☏ Ruang Aspirasi</button>
+    <button data-page="review">⚖ Review Rumusan</button>
+    <button data-page="tracking">◴ Public Tracking</button>
+  </nav>
+  <div class="side-note">Bersama untuk kebijakan yang lebih baik.</div>
+</aside>
 
-<header>
-    <div class="logo">SUARA.</div>
-
-    <nav>
-        <a href="#beranda">Beranda</a>
-        <a href="#kebijakan">Kebijakan</a>
-        <a href="#aspirasi">Aspirasi</a>
-        <a href="#tracking">Tracking</a>
-    </nav>
+<main>
+<header class="topbar">
+  <strong>Platform Partisipasi Publik</strong>
+  <button class="role">● Pengunjung Publik</button>
 </header>
 
-<section class="hero" id="beranda">
-    <h1>Suara Masyarakat, Arah Kebijakan.</h1>
+<section id="dashboard" class="page active" style="padding:0">
+  <div class="hero">
+    <div class="hero-content">
+      <div class="eyebrow">Partisipasi publik dalam pembentukan kebijakan</div>
+      <h2>Selamat Datang di <span>SUARA</span></h2>
+      <p>Kawal kebijakan. Sampaikan aspirasi. Pastikan suara rakyat dipertimbangkan dalam proses pembentukan peraturan.</p>
+      <button class="primary" data-go="kebijakan">Jelajahi Layanan →</button>
+    </div>
+  </div>
 
-    <p>
-        Ruang partisipasi publik untuk menyampaikan aspirasi,
-        memberikan masukan terhadap rancangan kebijakan,
-        dan mengawal proses pembentukan peraturan.
-    </p>
+  <div class="content">
+    <div class="section-heading">
+      <h2>Partisipasi yang Bermakna</h2>
+      <p>Pilih layanan SUARA yang ingin kamu gunakan.</p>
+    </div>
 
-    <a href="#kebijakan" class="btn">Jelajahi Kebijakan →</a>
+    <div class="cards">
+      <button class="service-card" data-go="kebijakan">
+        <span class="big">▤</span><h3>Rancangan Kebijakan</h3>
+        <p>Pelajari rancangan dan substansi peraturan.</p>
+      </button>
+      <button class="service-card" data-go="aspirasi">
+        <span class="big">☏</span><h3>Ruang Aspirasi</h3>
+        <p>Sampaikan pendapat dan masukan secara langsung.</p>
+      </button>
+      <button class="service-card" data-go="review">
+        <span class="big">⚖</span><h3>Review Rumusan</h3>
+        <p>Nilai kembali hasil revisi kebijakan sebelum ditetapkan.</p>
+      </button>
+      <button class="service-card" data-go="tracking">
+        <span class="big">◴</span><h3>Public Tracking</h3>
+        <p>Pantau perkembangan proses kebijakan.</p>
+      </button>
+    </div>
+
+    <section class="process">
+      <div class="process-head">
+        <div>
+          <h2>Alur Mekanisme SUARA</h2>
+          <p>Klik setiap tahapan untuk melihat penjelasannya.</p>
+        </div>
+        <button class="outline" id="showAll">Lihat Detail →</button>
+      </div>
+
+      <div class="timeline">
+        <button class="stage" data-stage="0"><span class="num">1</span><span class="symbol">▤</span><strong>Policy Registration</strong></button>
+        <button class="stage" data-stage="1"><span class="num">2</span><span class="symbol">♟</span><strong>Public Impact Mapping</strong></button>
+        <button class="stage" data-stage="2"><span class="num">3</span><span class="symbol">☏</span><strong>Public Consultation</strong></button>
+        <button class="stage" data-stage="3"><span class="num">4</span><span class="symbol">▥</span><strong>AI-Based Analysis</strong></button>
+        <button class="stage" data-stage="4"><span class="num">5</span><span class="symbol">⚒</span><strong>Legislative Response</strong></button>
+        <button class="stage" data-stage="5"><span class="num">6</span><span class="symbol">☑</span><strong>Public Review & Validation</strong></button>
+        <button class="stage" data-stage="6"><span class="num">7</span><span class="symbol">▤</span><strong>Policy Enactment</strong></button>
+        <button class="stage" data-stage="7"><span class="num">8</span><span class="symbol">⌕</span><strong>Public Tracking</strong></button>
+      </div>
+
+      <div class="detail" id="stageDetail">
+        <h3 id="stageTitle"></h3>
+        <p id="stageText"></p>
+      </div>
+    </section>
+  </div>
 </section>
 
-<section class="container">
-    <div class="section-title">
-        <h2>Partisipasi yang Bermakna</h2>
-        <p>Demokrasi membutuhkan suara yang didengar dan dipertimbangkan.</p>
-    </div>
-
-    <div class="stats">
-        <div class="card">
-            <div class="number">03</div>
-            <p>Contoh rancangan kebijakan</p>
-        </div>
-
-        <div class="card">
-            <div class="number" id="jumlah">128</div>
-            <p>Contoh aspirasi masyarakat</p>
-        </div>
-
-        <div class="card">
-            <div class="number">76%</div>
-            <p>Contoh respons aspirasi</p>
-        </div>
-    </div>
+<section id="kebijakan" class="page">
+  <h2>Rancangan Kebijakan</h2>
+  <p class="page-intro">Ruang untuk membaca informasi rancangan kebijakan, tujuan pengaturan, serta dokumen yang sedang dibuka untuk partisipasi publik.</p>
+  <div class="panel">
+    <h3>Daftar Rancangan Kebijakan</h3>
+    <p>Belum ada rancangan kebijakan yang dipublikasikan pada prototype ini.</p>
+    <p class="notice">Pada versi lanjutan, admin dapat menambahkan judul, ringkasan, dokumen, jadwal konsultasi, dan status pembahasan.</p>
+  </div>
 </section>
 
-<section class="container" id="kebijakan">
-    <div class="section-title">
-        <h2>Rancangan Kebijakan</h2>
-        <p>Kenali rancangan kebijakan dan berikan masukanmu.</p>
-    </div>
-
-    <div class="policy">
-
-        <div class="card">
-            <span class="tag">Contoh rancangan</span>
-            <h3>Rancangan Undang-Undang Pendidikan</h3>
-            <p>Ruang partisipasi masyarakat terhadap kebijakan pendidikan.</p>
-            <br>
-            <a href="#aspirasi" class="btn">Berikan Masukan</a>
-        </div>
-
-        <div class="card">
-            <span class="tag">Contoh rancangan</span>
-            <h3>Rancangan Kebijakan Lingkungan</h3>
-            <p>Partisipasi publik dalam penguatan perlindungan lingkungan.</p>
-            <br>
-            <a href="#aspirasi" class="btn">Berikan Masukan</a>
-        </div>
-
-        <div class="card">
-            <span class="tag">Contoh rancangan</span>
-            <h3>Rancangan Kebijakan Kepemudaan</h3>
-            <p>Mendorong keterlibatan pemuda dalam kebijakan publik.</p>
-            <br>
-            <a href="#aspirasi" class="btn">Berikan Masukan</a>
-        </div>
-
-    </div>
+<section id="aspirasi" class="page">
+  <h2>Ruang Aspirasi</h2>
+  <p class="page-intro">Sampaikan pendapat, kritik, atau usulan terhadap rancangan kebijakan.</p>
+  <form class="panel" id="aspirationForm">
+    <label for="nama">Nama (opsional)</label>
+    <input id="nama" placeholder="Nama atau inisial">
+    <label for="topik">Topik aspirasi</label>
+    <input id="topik" required placeholder="Contoh: pendidikan, lingkungan">
+    <label for="isi">Isi aspirasi</label>
+    <textarea id="isi" required placeholder="Tuliskan pendapat atau usulan kamu..."></textarea>
+    <button class="primary" type="submit">Kirim Simulasi Aspirasi</button>
+    <p class="notice" id="formMessage">Prototype ini belum menyimpan data secara permanen.</p>
+  </form>
 </section>
 
-<section class="container" id="aspirasi">
-    <div class="section-title">
-        <h2>Ruang Aspirasi</h2>
-        <p>Sampaikan pendapatmu terhadap rancangan kebijakan.</p>
-    </div>
-
-    <div class="card">
-        <h3>Formulir Penyampaian Aspirasi</h3>
-
-        <form id="formAspirasi">
-
-            <input
-                type="text"
-                id="nama"
-                placeholder="Nama atau nama samaran"
-                required
-            >
-
-            <select id="kebijakan" required>
-                <option value="">Pilih rancangan kebijakan</option>
-                <option>RUU Pendidikan</option>
-                <option>Kebijakan Lingkungan</option>
-                <option>Kebijakan Kepemudaan</option>
-            </select>
-
-            <input
-                type="text"
-                id="pasal"
-                placeholder="Pasal yang ingin dikomentari"
-                required
-            >
-
-            <textarea
-                id="masukan"
-                placeholder="Tuliskan aspirasi dan alasanmu..."
-                required
-            ></textarea>
-
-            <button type="submit" class="btn">
-                Kirim Aspirasi
-            </button>
-        </form>
-
-        <div class="result" id="hasil">
-        </div>
-    </div>
+<section id="review" class="page">
+  <h2>Public Review & Validation</h2>
+  <p class="page-intro">Setelah Legislative Response dan perumusan kembali, hasil rumusan ditampilkan lagi kepada masyarakat untuk diperiksa kesesuaiannya dengan aspirasi yang telah disampaikan.</p>
+  <div class="panel">
+    <h3>Validasi Rumusan Hasil Revisi</h3>
+    <p>Publik dapat membandingkan rumusan sebelum dan sesudah revisi, lalu memberikan penilaian apakah masukan masyarakat telah dipertimbangkan.</p>
+    <label for="penilaian">Penilaian kesesuaian</label>
+    <select id="penilaian">
+      <option>Belum menilai</option>
+      <option>Sudah sesuai dengan aspirasi</option>
+      <option>Sebagian aspirasi telah diakomodasi</option>
+      <option>Belum sesuai dengan aspirasi</option>
+    </select>
+    <label for="catatan">Catatan publik</label>
+    <textarea id="catatan" placeholder="Jelaskan alasan penilaian..."></textarea>
+    <button class="primary" id="sendReview" type="button">Simpan Simulasi Review</button>
+    <p class="notice" id="reviewMessage">Tahap ini berlangsung sebelum Policy Enactment.</p>
+  </div>
 </section>
 
-<section class="container" id="tracking">
-    <div class="section-title">
-        <h2>Tracking Aspirasi</h2>
-        <p>Pantau perkembangan aspirasi melalui identitas jejak.</p>
-    </div>
-
-    <div class="card">
-        <h3>Lacak Aspirasi</h3>
-
-        <form id="formTracking">
-            <input
-                type="text"
-                id="kode"
-                placeholder="Masukkan kode aspirasi"
-                required
-            >
-
-            <button type="submit" class="btn">
-                Lacak Sekarang
-            </button>
-        </form>
-
-        <div class="result" id="hasilTracking">
-        </div>
-    </div>
+<section id="tracking" class="page">
+  <h2>Public Tracking</h2>
+  <p class="page-intro">Pantau tahapan dan perkembangan rancangan kebijakan secara transparan. Status berikut merupakan contoh prototype, bukan status resmi.</p>
+  <div class="tracking-row">
+    <div class="track-step"><strong>01 · Konsultasi Publik</strong><p>Contoh status: Selesai</p></div>
+    <div class="track-step"><strong>02 · Legislative Response</strong><p>Contoh status: Selesai</p></div>
+    <div class="track-step"><strong>03 · Public Review</strong><p>Contoh status: Dalam simulasi</p></div>
+    <div class="track-step"><strong>04 · Penetapan</strong><p>Contoh status: Menunggu</p></div>
+  </div>
 </section>
 
-<footer>
-    <h2>SUARA.</h2>
-    <p>
-        Sistem Utama Aspirasi, Representasi, dan Akuntabilitas.
-    </p>
-    <p>Prototipe inovasi digital partisipasi publik.</p>
-    <br>
-    <p>© 2026 SUARA. Prototype Demonstration.</p>
-</footer>
+<footer>SUARA — Prototype platform partisipasi publik. Bukan situs resmi Mahkamah Konstitusi atau lembaga pemerintah.</footer>
+</main>
+</div>
 
 <script>
-let jumlahAspirasi = 128;
+const pages=document.querySelectorAll('.page');
+const navButtons=document.querySelectorAll('.nav button');
 
-document.getElementById("formAspirasi")
-.addEventListener("submit", function(event) {
+function openPage(id){
+  pages.forEach(page=>page.classList.toggle('active',page.id===id));
+  navButtons.forEach(btn=>btn.classList.toggle('active',btn.dataset.page===id));
+  window.scrollTo({top:0,behavior:'smooth'});
+}
 
-    event.preventDefault();
+navButtons.forEach(btn=>btn.addEventListener('click',()=>openPage(btn.dataset.page)));
+document.querySelectorAll('[data-go]').forEach(btn=>btn.addEventListener('click',()=>openPage(btn.dataset.go)));
 
-    jumlahAspirasi++;
+const stages=[
+['Policy Registration','Rancangan kebijakan didaftarkan dan informasi awalnya dipublikasikan agar masyarakat mengetahui isu yang akan diatur.'],
+['Public Impact Mapping','Pemetaan kelompok masyarakat yang berpotensi terdampak serta isu dan kebutuhan yang perlu diperhatikan.'],
+['Public Consultation','Masyarakat menyampaikan aspirasi, kritik, dan usulan terhadap rancangan kebijakan.'],
+['AI-Based Analysis','Masukan dikelompokkan dan dianalisis sebagai bahan bantu. Hasil analisis tetap perlu diperiksa manusia.'],
+['Legislative Response','Lembaga pembentuk kebijakan menelaah masukan dan memberikan tanggapan terhadap aspirasi publik.'],
+['Public Review & Validation','Rumusan yang telah diperbaiki ditampilkan kembali kepada masyarakat untuk diperiksa kesesuaiannya dengan masukan publik.'],
+['Policy Enactment','Setelah proses penelaahan dan validasi, rancangan dilanjutkan ke proses penetapan sesuai kewenangan dan prosedur hukum.'],
+['Public Tracking','Masyarakat memantau perkembangan, status, dan informasi tindak lanjut kebijakan.']
+];
 
-    let kode = "SUA-" + Date.now().toString().slice(-6);
+const detail=document.getElementById('stageDetail');
 
-    document.getElementById("jumlah").textContent =
-        jumlahAspirasi;
-
-    document.getElementById("hasil").style.display = "block";
-
-    document.getElementById("hasil").innerHTML =
-        "<strong>Aspirasi berhasil dicatat dalam simulasi!</strong>" +
-        "<br>Kode aspirasi: <strong>" + kode + "</strong>" +
-        "<br>Status: Menunggu tanggapan (simulasi)." +
-        "<br><br><small>Simpan kode tersebut untuk mencoba fitur tracking.</small>";
-
-    document.getElementById("kode").value = kode;
-
-    this.reset();
+document.querySelectorAll('.stage').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    document.querySelectorAll('.stage').forEach(s=>s.classList.remove('selected'));
+    btn.classList.add('selected');
+    const [title,desc]=stages[Number(btn.dataset.stage)];
+    document.getElementById('stageTitle').textContent=title;
+    document.getElementById('stageText').textContent=desc;
+    detail.classList.add('show');
+  });
 });
 
-document.getElementById("formTracking")
-.addEventListener("submit", function(event) {
+document.getElementById('showAll').addEventListener('click',()=>{
+  document.querySelector('.stage[data-stage="0"]').click();
+  detail.scrollIntoView({behavior:'smooth',block:'nearest'});
+});
 
-    event.preventDefault();
+document.getElementById('aspirationForm').addEventListener('submit',e=>{
+  e.preventDefault();
+  document.getElementById('formMessage').textContent=
+  'Simulasi berhasil. Aspirasi belum dikirim ke server atau disimpan permanen.';
+  e.target.reset();
+});
 
-    let kode = document.getElementById("kode").value;
-
-    document.getElementById("hasilTracking").style.display =
-        "block";
-
-    document.getElementById("hasilTracking").innerHTML =
-        "<strong>Data simulasi ditemukan.</strong>" +
-        "<br>Kode: " + kode +
-        "<br>Status: Menunggu tanggapan lembaga." +
-        "<br>Catatan: Ini merupakan demonstrasi, bukan pelacakan database nyata.";
+document.getElementById('sendReview').addEventListener('click',()=>{
+  document.getElementById('reviewMessage').textContent=
+  'Penilaian simulasi ditampilkan. Data belum tersimpan ke server.';
 });
 </script>
-
 </body>
 </html>
