@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#100d0e">
-  <meta name="description" content="SUARA — Sistem Utama Aspirasi, Representasi, dan Akuntabilitas. Platform prototype partisipasi publik dalam pembentukan kebijakan.">
+  <meta name="description" content="SUARA — Sistem Utama Aspirasi, Representasi, dan Akuntabilitas. Ruang partisipasi publik dalam pembentukan kebijakan.">
   <meta name="color-scheme" content="dark light">
   <title>SUARA — Partisipasi Publik</title>
   <link rel="manifest" href="manifest.webmanifest">
@@ -264,6 +264,114 @@
     }
     @media (max-width: 420px) { .service-grid { grid-template-columns: 1fr 1fr; } .service-card { min-height: 163px; } .form-grid { grid-template-columns: 1fr; } .field.full { grid-column: auto; } .comparison { grid-template-columns: 1fr; } .hero-actions .btn { width: 100%; } .tracking-title { flex-direction: column; } }
     @media (prefers-reduced-motion: reduce) { *,*::before,*::after { scroll-behavior: auto !important; animation-duration: .01ms !important; transition-duration: .01ms !important; } }
+
+    /* Compact mobile layout and independent feature sections. */
+    .tracking-status { margin: 4px 0 18px; padding: 14px 15px; display: flex; gap: 11px; border: 1px solid var(--line); border-radius: 14px; background: var(--surface); }
+    .tracking-status .status-dot { margin: 6px 1px 0 2px; flex: 0 0 auto; background: var(--gold); box-shadow: 0 0 0 4px var(--gold-soft); }
+    .tracking-status strong { display: block; font-size: 12px; }
+    .tracking-status p { margin: 3px 0 0; color: var(--muted); font-size: 10px; line-height: 1.5; }
+    .tracking-process { margin-top: 0; }
+    .tracking-process .timeline { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 8px; }
+    .tracking-process .stage { min-width: 0; min-height: 62px; padding: 9px 10px; display: grid; grid-template-columns: 31px 22px minmax(0,1fr); align-items: center; justify-items: start; gap: 8px; border: 1px solid var(--line); border-radius: 12px; background: var(--bg-soft); text-align: left; }
+    .tracking-process .stage:not(:last-child)::after { display: none; }
+    .tracking-process .stage-ico { margin: 0; font-size: 15px; }
+    .tracking-process .stage strong { max-width: none; font-size: 10px; line-height: 1.35; }
+    .tracking-process .stage-num { width: 29px; height: 29px; }
+    .mobile-disclosure { overflow: hidden; border: 1px solid var(--line); border-radius: 14px; background: var(--surface); }
+    .mobile-disclosure + .mobile-disclosure { margin-top: 10px; }
+    .mobile-disclosure summary { position: relative; padding: 14px 42px 14px 15px; color: var(--text); font-size: 11px; font-weight: 750; cursor: pointer; list-style: none; }
+    .mobile-disclosure summary::-webkit-details-marker { display: none; }
+    .mobile-disclosure summary::after { content: "+"; position: absolute; right: 15px; top: 50%; transform: translateY(-50%); color: var(--red-strong); font-size: 20px; font-weight: 400; }
+    .mobile-disclosure[open] summary::after { content: "−"; }
+    .mobile-disclosure > .info-card,.mobile-disclosure > .panel { margin: 0; border: 0; border-top: 1px solid var(--line); border-radius: 0; box-shadow: none; }
+    .install-btn.visible { display: inline-flex; align-items: center; gap: 7px; }
+    .install-overlay { position: fixed; z-index: 120; inset: 0; padding: 18px; display: none; align-items: flex-end; justify-content: center; background: rgba(0,0,0,.62); backdrop-filter: blur(5px); }
+    .install-overlay.show { display: flex; }
+    .install-sheet { position: relative; width: min(100%,440px); padding: 24px 20px 20px; border: 1px solid var(--line-strong); border-radius: 22px; background: var(--surface); box-shadow: var(--shadow); animation: appear .2s ease; }
+    .install-close { position: absolute; top: 12px; right: 14px; width: 33px; height: 33px; border: 1px solid var(--line); border-radius: 10px; background: var(--bg-soft); color: var(--muted); font-size: 21px; cursor: pointer; }
+    .install-sheet-icon { width: 44px; height: 44px; display: grid; place-items: center; border-radius: 13px; background: var(--red-soft); color: var(--red-strong); }
+    .install-sheet-icon svg { width: 23px; height: 23px; }
+    .install-sheet h2 { margin: 15px 0 6px; font-size: 18px; }
+    .install-sheet p,.install-sheet li { color: var(--muted); font-size: 11px; line-height: 1.65; }
+    .install-sheet ol { margin: 12px 0; padding-left: 20px; }
+    .install-sheet li + li { margin-top: 5px; }
+    .install-sheet strong { color: var(--text); }
+    .install-hint { padding: 10px 11px; border-radius: 10px; background: var(--gold-soft); }
+    .install-done { width: 100%; margin-top: 6px; }
+    @media (max-width:760px) {
+      main { padding-bottom: calc(76px + env(safe-area-inset-bottom)); }
+      .topbar { height: 56px; padding: 0 12px; gap: 8px; }
+      .mobile-brand { font-size: 15px; gap: 6px; }
+      .mobile-brand svg { width: 20px; height: 20px; }
+      .topbar-tools { gap: 5px; }
+      .status-pill { padding: 6px; }
+      .icon-btn { width: 34px; height: 34px; border-radius: 10px; }
+      .icon-btn svg { width: 16px; height: 16px; }
+      .install-btn { min-height: 34px; width: 36px; padding: 0; border-radius: 10px; }
+      .install-btn span { display: none; }
+      .install-btn svg { width: 17px; height: 17px; }
+      .hero { min-height: 275px; padding: 30px 18px 26px; }
+      .hero::before { width: 235px; height: 235px; right: -96px; top: 19px; box-shadow: 0 0 0 22px rgba(231,191,112,.025),0 0 0 47px rgba(231,191,112,.018),inset 0 0 45px rgba(213,42,52,.09); }
+      .hero::after { right: -22px; top: 24%; font-size: 110px; }
+      .eyebrow { font-size: 9px; letter-spacing: .12em; }
+      .hero h1 { margin: 12px 0 9px; max-width: 330px; font-size: clamp(33px,9vw,42px); line-height: 1.03; }
+      .hero-copy { max-width: 320px; font-size: 12px; line-height: 1.55; }
+      .hero-actions { gap: 8px; margin-top: 17px; }
+      .hero-actions .btn { width: auto; min-height: 39px; padding: 0 12px; font-size: 10px; }
+      .content-wrap { padding: 21px 14px 25px; }
+      .section-head { margin-bottom: 12px; }
+      .section-head h2 { font-size: 19px; }
+      .section-head p { font-size: 11px; }
+      .service-grid { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 9px; }
+      .service-card { min-height: 132px; padding: 13px 12px; border-radius: 14px; }
+      .service-icon { width: 32px; height: 32px; border-radius: 10px; }
+      .service-icon svg { width: 17px; height: 17px; }
+      .service-card h3 { margin: 10px 0 4px; font-size: 11px; line-height: 1.35; }
+      .service-card p { font-size: 9px; line-height: 1.45; }
+      .card-arrow { right: 11px; bottom: 9px; font-size: 13px; }
+      .page-inner { padding: 23px 14px 27px; }
+      .page-heading { margin-bottom: 16px; }
+      .page-heading h1 { font-size: 23px; }
+      .page-intro { margin-top: 6px; font-size: 11px; line-height: 1.55; }
+      .two-col { grid-template-columns: minmax(0,1fr); gap: 12px; }
+      .panel { padding: 16px; border-radius: 15px; }
+      .panel h2,.panel h3 { font-size: 14px; }
+      .panel-subtitle { font-size: 10px; }
+      .field { margin-top: 12px; }
+      .field label { font-size: 10px; }
+      .field input,.field textarea,.field select { min-height: 43px; font-size: 12px; }
+      .field textarea { min-height: 112px; }
+      .form-actions { gap: 8px; }
+      .form-actions .btn { flex: 1 1 auto; min-height: 42px; }
+      .check-row { font-size: 10px; }
+      .notice { font-size: 9px; }
+      .page-extras { display: grid; gap: 9px; }
+      .tracking-status { margin: 0 0 13px; padding: 12px; }
+      .tracking-process { padding: 15px 12px; }
+      .tracking-process .process-top h2 { font-size: 15px; }
+      .tracking-process .process-top p { font-size: 10px; }
+      .tracking-process .timeline { margin-top: 16px; grid-template-columns: minmax(0,1fr); gap: 7px; }
+      .tracking-process .stage { min-height: 52px; padding: 8px 10px; grid-template-columns: 29px 20px minmax(0,1fr); gap: 9px; }
+      .tracking-process .stage strong { font-size: 11px; }
+      .stage-detail { padding: 12px; }
+      .mobile-nav { padding: 6px 5px calc(6px + env(safe-area-inset-bottom)); grid-template-columns: repeat(5,minmax(0,1fr)); }
+      .mobile-nav button { min-height: 49px; padding: 5px 1px 2px; gap: 3px; }
+      .mobile-nav svg { width: 19px; height: 19px; }
+      .mobile-nav span { font-size: 8px; }
+      .toast { right: 10px; bottom: calc(72px + env(safe-area-inset-bottom)); }
+      .install-overlay { padding: 10px; }
+      .install-sheet { padding: 22px 17px 17px; }
+    }
+    @media (max-width:360px) {
+      .topbar { padding: 0 8px; }
+      .mobile-brand { font-size: 14px; }
+      .topbar-tools { gap: 4px; }
+      .icon-btn { width: 32px; height: 32px; }
+      .hero-actions .btn { padding: 0 9px; font-size: 9px; }
+      .service-card { min-height: 128px; }
+      .mobile-nav span { font-size: 7px; }
+    }
+
   </style>
 </head>
 <body>
@@ -283,7 +391,6 @@
     </nav>
     <div class="sidebar-bottom">
       <div class="side-quote"><div class="side-quote-mark">“</div><p>Partisipasi yang bermakna dimulai dari akses informasi dan ruang untuk didengar.</p></div>
-      <div class="side-version"><span>SUARA Prototype</span><span>v1.0.0</span></div>
     </div>
   </aside>
 
@@ -295,18 +402,19 @@
       </div>
       <div class="topbar-tools">
         <div class="status-pill" id="networkStatus" title="Status koneksi"><span class="status-dot"></span><span id="networkText">Terhubung</span></div>
+        <button class="icon-btn" id="voiceToggle" type="button" aria-label="Matikan suara sapaan" title="Suara sapaan aktif"><svg id="voiceIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H3v6h3l5 4V5Z"/><path d="M15.5 8.5a5 5 0 0 1 0 7m3-10a9 9 0 0 1 0 13"/></svg></button>
         <button class="icon-btn" id="themeToggle" type="button" aria-label="Ganti tema" title="Ganti tema"><svg id="themeIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v2m0 14v2M5.6 5.6 7 7m10 10 1.4 1.4M3 12h2m14 0h2M5.6 18.4 7 17m10-10 1.4-1.4"/><circle cx="12" cy="12" r="4"/></svg></button>
-        <button class="install-btn" id="installBtn" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m-5-5 5 5 5-5M5 17v3h14v-3"/></svg>Pasang aplikasi</button>
+        <button class="install-btn visible" id="installBtn" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m-5-5 5 5 5-5M5 17v3h14v-3"/></svg><span>Pasang</span></button>
       </div>
     </header>
 
     <section id="dashboard" class="page active" aria-labelledby="heroTitle">
       <div class="hero">
         <div class="hero-content">
-          <div class="eyebrow">Partisipasi publik dalam pembentukan kebijakan</div>
-          <h1 id="heroTitle">Suara publik,<br>arah <span>kebijakan.</span></h1>
-          <p class="hero-copy">Kawal kebijakan. Sampaikan aspirasi. Ikuti prosesnya. SUARA menyediakan ruang partisipasi publik agar masukan masyarakat dapat dipertimbangkan dalam pembentukan peraturan.</p>
-          <div class="hero-actions"><button class="btn btn-primary" data-go="kebijakan">Jelajahi rancangan kebijakan <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></button><button class="btn btn-secondary" data-go="aspirasi">Sampaikan aspirasi</button></div>
+          <div class="eyebrow">Ruang partisipasi publik</div>
+          <h1 id="heroTitle">Selamat datang<br>di <span>SUARA.</span></h1>
+          <p class="hero-copy">Sampaikan aspirasi, ikuti proses kebijakan, dan ambil bagian dalam pengawasan publik.</p>
+          <div class="hero-actions"><button class="btn btn-primary" data-go="aspirasi">Sampaikan aspirasi <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></button><button class="btn btn-secondary" data-go="kebijakan">Lihat kebijakan</button></div>
         </div>
       </div>
       <div class="content-wrap">
@@ -318,21 +426,6 @@
           <button class="service-card" data-go="tracking"><span class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span><h3>Public Tracking</h3><p>Kenali tahapan dan pantau perkembangan proses kebijakan.</p><span class="card-arrow">↗</span></button>
         </div>
 
-        <section class="process-panel" aria-labelledby="processTitle">
-          <div class="process-top"><div><p class="section-kicker">Dari awal hingga akhir</p><h2 id="processTitle">Alur mekanisme SUARA</h2><p>Delapan tahapan partisipasi publik dalam pembentukan kebijakan.</p></div><button class="btn btn-quiet" id="showAllStages" type="button">Pelajari tahapan <span aria-hidden="true">→</span></button></div>
-          <div class="timeline" id="timeline">
-            <button class="stage" data-stage="0"><span class="stage-num">01</span><span class="stage-ico">▤</span><strong>Policy Registration</strong></button>
-            <button class="stage" data-stage="1"><span class="stage-num">02</span><span class="stage-ico">♧</span><strong>Public Impact Mapping</strong></button>
-            <button class="stage" data-stage="2"><span class="stage-num">03</span><span class="stage-ico">☏</span><strong>Public Consultation</strong></button>
-            <button class="stage" data-stage="3"><span class="stage-num">04</span><span class="stage-ico">▥</span><strong>AI-Based Analysis</strong></button>
-            <button class="stage" data-stage="4"><span class="stage-num">05</span><span class="stage-ico">⚒</span><strong>Legislative Response</strong></button>
-            <button class="stage" data-stage="5"><span class="stage-num">06</span><span class="stage-ico">☑</span><strong>Public Review &amp; Validation</strong></button>
-            <button class="stage" data-stage="6"><span class="stage-num">07</span><span class="stage-ico">▤</span><strong>Policy Enactment</strong></button>
-            <button class="stage" data-stage="7"><span class="stage-num">08</span><span class="stage-ico">⌕</span><strong>Public Tracking</strong></button>
-          </div>
-          <div class="stage-detail" id="stageDetail" aria-live="polite"><h3 id="stageTitle"></h3><p id="stageText"></p></div>
-          <div class="process-note"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 11v5m0-8h.01"/></svg><span>Urutan ini merupakan rancangan mekanisme dalam prototype SUARA, bukan pernyataan bahwa seluruh tahapan tersebut telah dilaksanakan oleh lembaga tertentu.</span></div>
-        </section>
       </div>
     </section>
 
@@ -342,11 +435,11 @@
         <div class="two-col">
           <div class="panel empty-state">
             <div class="empty-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3h8l5 5v13H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2Z"/><path d="M15 3v6h5M9 13h7M9 17h5"/></svg></div>
-            <h3>Belum ada rancangan yang dipublikasikan</h3>
-            <p>Daftar rancangan kebijakan belum tersedia pada prototype ini. Informasi akan muncul di bagian ini setelah admin menambahkan data melalui sistem pengelolaan konten.</p>
+            <h3>Belum ada daftar kebijakan</h3>
+            <p>Daftar rancangan dan dokumen akan muncul di sini setelah dipublikasikan oleh pengelola.</p>
             <button class="btn btn-primary" data-go="aspirasi">Sampaikan aspirasi umum <span>→</span></button>
           </div>
-          <aside class="info-card"><h3>Informasi yang idealnya tersedia</h3><p>Setiap rancangan kebijakan dapat dilengkapi dengan informasi berikut agar publik memahami materi yang sedang dibahas.</p><ul><li>Judul dan ringkasan rancangan.</li><li>Lembaga atau pihak pengusul.</li><li>Tujuan dan ruang lingkup pengaturan.</li><li>Dokumen rancangan dan naskah akademik.</li><li>Jadwal konsultasi serta batas waktu masukan.</li><li>Status pembahasan dan tindak lanjut.</li></ul></aside>
+          <details class="mobile-disclosure"><summary>Informasi yang tersedia pada setiap rancangan</summary><div class="info-card"><p>Setiap rancangan dapat memuat informasi berikut agar masyarakat memahami materi yang sedang dibahas.</p><ul><li>Judul dan ringkasan rancangan.</li><li>Lembaga atau pihak pengusul.</li><li>Tujuan dan ruang lingkup pengaturan.</li><li>Dokumen rancangan dan naskah akademik.</li><li>Jadwal konsultasi serta batas waktu masukan.</li><li>Status pembahasan dan tindak lanjut.</li></ul></div></details>
         </div>
       </div>
     </section>
@@ -367,9 +460,9 @@
             <div class="form-actions"><button class="btn btn-primary" type="submit">Simpan aspirasi <span>→</span></button><button class="btn btn-quiet" type="reset">Kosongkan formulir</button></div>
             <div class="notice"><strong>Perlindungan data:</strong> Jangan masukkan NIK, alamat lengkap, nomor telepon, kata sandi, atau informasi pribadi/rahasia. Gunakan nama samaran bila diperlukan.</div>
           </form>
-          <aside>
-            <div class="info-card"><h3>Tips menyusun aspirasi</h3><ul><li>Jelaskan masalah secara spesifik, bukan hanya menyampaikan ketidaksetujuan.</li><li>Terangkan dampak masalah terhadap masyarakat.</li><li>Sertakan usulan yang realistis dan berkaitan dengan kewenangan pembentuk kebijakan.</li><li>Gunakan bahasa yang jelas dan tetap santun.</li></ul></div>
-            <div class="panel" style="margin-top:15px"><h3>Riwayat di perangkat ini</h3><p class="panel-subtitle">Aspirasi simulasi yang pernah kamu simpan pada browser ini.</p><div id="aspirationHistory" class="entry-list"><p class="panel-subtitle">Belum ada aspirasi tersimpan.</p></div></div>
+          <aside class="page-extras">
+            <details class="mobile-disclosure"><summary>Tips menyusun aspirasi</summary><div class="info-card"><ul><li>Jelaskan masalah secara spesifik.</li><li>Terangkan dampaknya terhadap masyarakat.</li><li>Sertakan usulan yang realistis dan sesuai kewenangan pembentuk kebijakan.</li><li>Gunakan bahasa yang jelas dan santun.</li></ul></div></details>
+            <details class="mobile-disclosure"><summary>Riwayat aspirasi tersimpan</summary><div class="panel"><p class="panel-subtitle">Aspirasi yang tersimpan di browser/perangkat ini.</p><div id="aspirationHistory" class="entry-list"><p class="panel-subtitle">Belum ada aspirasi tersimpan.</p></div></div></details>
           </aside>
         </div>
       </div>
@@ -380,44 +473,55 @@
         <div class="page-heading"><p class="section-kicker">Pemeriksaan publik</p><h1 id="reviewTitle">Review Rumusan</h1><p class="page-intro">Setelah lembaga pembentuk kebijakan memberikan tanggapan dan memperbaiki rancangan, hasil rumusan dapat ditampilkan kembali kepada masyarakat untuk diperiksa kesesuaiannya dengan aspirasi yang telah disampaikan.</p></div>
         <div class="two-col">
           <div class="panel">
-            <h2>Validasi rumusan hasil revisi</h2><p class="panel-subtitle">Gunakan penilaian berikut sebagai simulasi review atas suatu rumusan kebijakan.</p>
-            <div class="comparison"><div class="comparison-box"><span>Sebelum revisi</span><p>Rumusan awal kebijakan (dokumen belum tersedia dalam prototype).</p></div><div class="comparison-box"><span>Sesudah revisi</span><p>Rumusan hasil perbaikan (dokumen belum tersedia dalam prototype).</p></div></div>
+            <h2>Validasi rumusan hasil revisi</h2><p class="panel-subtitle">Gunakan penilaian berikut untuk mencatat kesesuaian rumusan kebijakan dengan aspirasi masyarakat.</p>
+            <div class="comparison"><div class="comparison-box"><span>Sebelum revisi</span><p>Dokumen rumusan awal belum tersedia.</p></div><div class="comparison-box"><span>Sesudah revisi</span><p>Dokumen rumusan hasil perbaikan belum tersedia.</p></div></div>
             <form id="reviewForm">
               <div class="field"><label for="penilaian">Penilaian kesesuaian *</label><select id="penilaian" required><option value="">Pilih penilaian</option><option>Sudah sesuai dengan aspirasi</option><option>Sebagian aspirasi telah diakomodasi</option><option>Belum sesuai dengan aspirasi</option></select></div>
               <div class="field"><label for="catatan">Catatan publik <span class="optional">Opsional</span></label><textarea id="catatan" maxlength="1500" placeholder="Jelaskan alasan penilaian, bagian yang sudah sesuai, atau hal yang masih perlu diperbaiki..."></textarea></div>
-              <label class="check-row"><input id="reviewConfirm" type="checkbox" required><span>Saya memahami bahwa review ini merupakan simulasi yang disimpan secara lokal.</span></label>
+              <label class="check-row"><input id="reviewConfirm" type="checkbox" required><span>Saya memahami bahwa review ini hanya tersimpan pada browser/perangkat yang sedang digunakan dan belum dikirim kepada lembaga terkait.</span></label>
               <div class="form-actions"><button class="btn btn-primary" type="submit">Simpan review <span>→</span></button><button class="btn btn-quiet" type="reset">Reset</button></div>
             </form>
             <div class="notice" id="reviewMessage">Tahap review dalam rancangan mekanisme berlangsung sebelum Policy Enactment.</div>
           </div>
-          <aside class="panel"><h3>Riwayat review lokal</h3><p class="panel-subtitle">Catatan review yang tersimpan pada browser/perangkat ini.</p><div id="reviewHistory" class="entry-list"><p class="panel-subtitle">Belum ada review tersimpan.</p></div></aside>
+          <aside class="page-extras"><details class="mobile-disclosure"><summary>Riwayat review tersimpan</summary><div class="panel"><p class="panel-subtitle">Catatan review yang tersimpan pada browser/perangkat ini.</p><div id="reviewHistory" class="entry-list"><p class="panel-subtitle">Belum ada review tersimpan.</p></div></div></details></aside>
         </div>
       </div>
     </section>
 
     <section id="tracking" class="page" aria-labelledby="trackingTitle">
       <div class="page-inner">
-        <div class="page-heading"><p class="section-kicker">Transparansi proses</p><h1 id="trackingTitle">Public Tracking</h1><p class="page-intro">Kenali tahapan dan perkembangan proses kebijakan secara terstruktur. Pelacakan aktual membutuhkan data dan pembaruan status dari lembaga yang berwenang.</p></div>
-        <div class="tracking-summary">
-          <div class="tracking-title"><div><h3>Contoh alur proses kebijakan</h3><p>Ilustrasi tahapan untuk menunjukkan cara kerja fitur pelacakan.</p></div><span class="sample-label">DATA SIMULASI</span></div>
-          <div class="progress-meta"><span>Ilustrasi kemajuan tahapan</span><strong>5 dari 8 tahap</strong></div><div class="progress-track"><div class="progress-fill"></div></div>
-          <div class="tracking-list" id="trackingList">
-            <div class="tracking-item done"><span class="tracking-marker">✓</span><strong>Policy Registration</strong><p>Informasi awal rancangan dicatat dan dipublikasikan.</p></div>
-            <div class="tracking-item done"><span class="tracking-marker">✓</span><strong>Public Impact Mapping</strong><p>Kelompok masyarakat terdampak dan isu utama dipetakan.</p></div>
-            <div class="tracking-item done"><span class="tracking-marker">✓</span><strong>Public Consultation</strong><p>Ruang untuk menerima aspirasi dan masukan masyarakat.</p></div>
-            <div class="tracking-item done"><span class="tracking-marker">✓</span><strong>AI-Based Analysis</strong><p>Masukan dikelompokkan sebagai bahan bantu analisis dan perlu ditinjau manusia.</p></div>
-            <div class="tracking-item current"><span class="tracking-marker">5</span><strong>Legislative Response</strong><p>Lembaga pembentuk kebijakan menelaah masukan dan menyiapkan tanggapan.</p></div>
-            <div class="tracking-item"><span class="tracking-marker">6</span><strong>Public Review &amp; Validation</strong><p>Publik memeriksa rumusan yang telah diperbaiki.</p></div>
-            <div class="tracking-item"><span class="tracking-marker">7</span><strong>Policy Enactment</strong><p>Rancangan dilanjutkan ke proses penetapan sesuai kewenangan dan prosedur hukum.</p></div>
-            <div class="tracking-item"><span class="tracking-marker">8</span><strong>Public Tracking</strong><p>Perkembangan dan tindak lanjut dipantau secara terbuka.</p></div>
+        <div class="page-heading"><p class="section-kicker">Transparansi proses</p><h1 id="trackingTitle">Public Tracking</h1><p class="page-intro">Pelajari delapan tahapan pembentukan kebijakan. Informasi status pelaksanaan akan ditampilkan ketika pembaruan dari pengelola tersedia.</p></div>
+        <div class="tracking-status"><span class="status-dot" aria-hidden="true"></span><div><strong>Belum ada pembaruan status</strong><p>Belum ada data rancangan kebijakan yang dapat dilacak saat ini.</p></div></div>
+        <section class="process-panel tracking-process" aria-labelledby="processTitle">
+          <div class="process-top"><div><p class="section-kicker">Alur partisipasi</p><h2 id="processTitle">Delapan tahapan SUARA</h2><p>Pilih salah satu tahapan untuk membaca penjelasannya.</p></div></div>
+          <div class="timeline" id="timeline">
+            <button class="stage" type="button" data-stage="0"><span class="stage-num">01</span><span class="stage-ico">▤</span><strong>Policy Registration</strong></button>
+            <button class="stage" type="button" data-stage="1"><span class="stage-num">02</span><span class="stage-ico">♧</span><strong>Public Impact Mapping</strong></button>
+            <button class="stage" type="button" data-stage="2"><span class="stage-num">03</span><span class="stage-ico">☏</span><strong>Public Consultation</strong></button>
+            <button class="stage" type="button" data-stage="3"><span class="stage-num">04</span><span class="stage-ico">▥</span><strong>AI-Based Analysis</strong></button>
+            <button class="stage" type="button" data-stage="4"><span class="stage-num">05</span><span class="stage-ico">⚒</span><strong>Legislative Response</strong></button>
+            <button class="stage" type="button" data-stage="5"><span class="stage-num">06</span><span class="stage-ico">☑</span><strong>Public Review &amp; Validation</strong></button>
+            <button class="stage" type="button" data-stage="6"><span class="stage-num">07</span><span class="stage-ico">▤</span><strong>Policy Enactment</strong></button>
+            <button class="stage" type="button" data-stage="7"><span class="stage-num">08</span><span class="stage-ico">⌕</span><strong>Public Tracking</strong></button>
           </div>
-        </div>
-        <p class="smallprint">Catatan: status dan persentase di atas hanya ilustrasi prototype, bukan status resmi suatu rancangan kebijakan. Versi produksi perlu terhubung dengan basis data serta mekanisme pembaruan yang dapat diverifikasi.</p>
+          <div class="stage-detail" id="stageDetail" aria-live="polite"><h3 id="stageTitle"></h3><p id="stageText"></p></div>
+        </section>
       </div>
     </section>
-
-    <footer>SUARA — Prototype platform partisipasi publik. Bukan situs resmi Mahkamah Konstitusi atau lembaga pemerintah. Data simulasi disimpan lokal di browser dan dapat dihapus melalui pengaturan data browser.</footer>
   </main>
+</div>
+
+
+<div class="install-overlay" id="installHelp" aria-hidden="true">
+  <section class="install-sheet" role="dialog" aria-modal="true" aria-labelledby="installHelpTitle">
+    <button class="install-close" id="closeInstallHelp" type="button" aria-label="Tutup petunjuk">×</button>
+    <div class="install-sheet-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m-5-5 5 5 5-5M5 17v3h14v-3"/></svg></div>
+    <h2 id="installHelpTitle">Pasang SUARA di perangkat</h2>
+    <p>Untuk memasang SUARA melalui Chrome:</p>
+    <ol><li>Buka menu <strong>⋮</strong> di Chrome.</li><li>Pilih <strong>Install app</strong> atau <strong>Tambahkan ke layar utama</strong>.</li><li>Ikuti petunjuk yang muncul sampai selesai.</li></ol>
+    <p class="install-hint">Buka SUARA melalui alamat HTTPS atau localhost agar fitur pemasangan dan offline dapat digunakan.</p>
+    <button class="btn btn-primary install-done" id="doneInstallHelp" type="button">Mengerti</button>
+  </section>
 </div>
 
 <nav class="mobile-nav" aria-label="Navigasi bawah">
@@ -432,7 +536,7 @@
 <script>
 (() => {
   'use strict';
-  const STORAGE = { aspirations: 'suara_aspirations_v1', reviews: 'suara_reviews_v1', theme: 'suara_theme_v1' };
+  const STORAGE = { aspirations: 'suara_aspirations_v1', reviews: 'suara_reviews_v1', theme: 'suara_theme_v1', voice: 'suara_voice_v1' };
   const titles = { dashboard: 'Dashboard', kebijakan: 'Rancangan Kebijakan', aspirasi: 'Ruang Aspirasi', review: 'Review Rumusan', tracking: 'Public Tracking' };
   const pages = [...document.querySelectorAll('.page')];
   const navButtons = [...document.querySelectorAll('[data-page]')];
@@ -452,6 +556,7 @@
     navButtons.forEach(btn => {
       const active = btn.dataset.page === id;
       btn.classList.toggle('active', active);
+      if (btn.hasAttribute('aria-current')) { if (active) btn.setAttribute('aria-current', 'page'); else btn.removeAttribute('aria-current'); }
       if (btn.classList.contains('nav-btn')) {
         if (active) btn.setAttribute('aria-current', 'page'); else btn.removeAttribute('aria-current');
       }
@@ -486,10 +591,6 @@
     document.getElementById('stageDetail').classList.add('show');
   }
   stageButtons.forEach(button => button.addEventListener('click', () => selectStage(Number(button.dataset.stage))));
-  document.getElementById('showAllStages').addEventListener('click', () => {
-    selectStage(0);
-    document.getElementById('stageDetail').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-  });
 
   function readStore(key) {
     try { const value = JSON.parse(localStorage.getItem(key) || '[]'); return Array.isArray(value) ? value : []; }
@@ -510,7 +611,7 @@
     container.innerHTML = entries.slice().reverse().map(item => {
       const heading = type === 'aspiration' ? item.judul : item.penilaian;
       const detail = type === 'aspiration' ? item.isi : (item.catatan || 'Tidak ada catatan tambahan.');
-      const meta = type === 'aspiration' ? `${item.topik} · ${item.nama || 'Anonim'}` : 'Review simulasi';
+      const meta = type === 'aspiration' ? `${item.topik} · ${item.nama || 'Anonim'}` : 'Review lokal';
       return `<article class="entry-card"><div class="entry-top"><div><h4>${escapeText(heading)}</h4><div class="entry-meta">${escapeText(meta)} · ${escapeText(formatDate(item.date))}</div></div><button class="delete-btn" type="button" data-delete="${escapeText(item.id)}" data-kind="${type}">Hapus</button></div><p>${escapeText(detail)}</p></article>`;
     }).join('');
   }
@@ -524,7 +625,7 @@
     const isAspiration = button.dataset.kind === 'aspiration';
     const key = isAspiration ? STORAGE.aspirations : STORAGE.reviews;
     const next = readStore(key).filter(item => item.id !== button.dataset.delete);
-    if (writeStore(key, next)) { refreshHistories(); showToast('Data simulasi dihapus dari perangkat ini.'); }
+    if (writeStore(key, next)) { refreshHistories(); showToast('Data dihapus dari perangkat ini.'); }
   });
 
   const aspirationForm = document.getElementById('aspirationForm');
@@ -547,7 +648,7 @@
     if (writeStore(STORAGE.aspirations, entries)) {
       aspirationForm.reset();
       refreshHistories();
-      showToast('Aspirasi simulasi tersimpan di perangkat ini.');
+      showToast('Aspirasi tersimpan di perangkat ini.');
     }
   });
 
@@ -566,7 +667,7 @@
     if (writeStore(STORAGE.reviews, entries)) {
       form.reset();
       refreshHistories();
-      showToast('Review simulasi tersimpan di perangkat ini.');
+      showToast('Review tersimpan di perangkat ini.');
     }
   });
   refreshHistories();
@@ -579,6 +680,44 @@
       ? '<circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"/>'
       : '<path d="M20.9 13A8.5 8.5 0 0 1 11 3.1 8.5 8.5 0 1 0 20.9 13Z"/>';
   }
+
+  // Sapaan suara otomatis saat aplikasi dibuka; dapat dinonaktifkan melalui ikon speaker.
+  const voiceButton = document.getElementById('voiceToggle');
+  const voiceIcon = document.getElementById('voiceIcon');
+  let voiceEnabled = localStorage.getItem(STORAGE.voice) !== 'off';
+  let greetingStarted = false;
+  function updateVoiceControl() {
+    voiceIcon.innerHTML = voiceEnabled
+      ? '<path d="M11 5 6 9H3v6h3l5 4V5Z"/><path d="M15.5 8.5a5 5 0 0 1 0 7m3-10a9 9 0 0 1 0 13"/>'
+      : '<path d="M11 5 6 9H3v6h3l5 4V5Z"/><path d="m17 9 5 6m0-6-5 6"/>';
+    voiceButton.setAttribute('aria-label', voiceEnabled ? 'Matikan suara sapaan' : 'Aktifkan suara sapaan');
+    voiceButton.title = voiceEnabled ? 'Suara sapaan aktif · Ketuk untuk mematikan' : 'Suara sapaan nonaktif';
+  }
+  function speakWelcome() {
+    if (!voiceEnabled || !('speechSynthesis' in window)) return;
+    try {
+      window.speechSynthesis.cancel();
+      const utterance = new SpeechSynthesisUtterance('Selamat datang, sampaikan aspirasimu.');
+      utterance.lang = 'id-ID'; utterance.rate = 0.92; utterance.pitch = 1;
+      utterance.onstart = () => { greetingStarted = true; };
+      utterance.onerror = event => { greetingStarted = false; if (event.error === 'not-allowed') showToast('Ketuk ikon speaker untuk memutar sapaan.'); };
+      const idVoice = window.speechSynthesis.getVoices().find(v => /^id(-|_)?/i.test(v.lang));
+      if (idVoice) utterance.voice = idVoice;
+      window.speechSynthesis.speak(utterance);
+    } catch (error) { console.warn('Suara sapaan tidak dapat diputar:', error); }
+  }
+  updateVoiceControl();
+  if (!('speechSynthesis' in window)) voiceButton.hidden = true;
+  else if (voiceEnabled) window.addEventListener('load', () => setTimeout(speakWelcome, 650), { once: true });
+  voiceButton.addEventListener('click', () => {
+    if (voiceEnabled && !greetingStarted) { speakWelcome(); showToast('Memutar sapaan SUARA.'); return; }
+    voiceEnabled = !voiceEnabled;
+    localStorage.setItem(STORAGE.voice, voiceEnabled ? 'on' : 'off');
+    updateVoiceControl();
+    if (voiceEnabled) { speakWelcome(); showToast('Suara sapaan diaktifkan.'); }
+    else { window.speechSynthesis.cancel(); showToast('Suara sapaan dimatikan.'); }
+  });
+
   const storedTheme = localStorage.getItem(STORAGE.theme) || 'dark';
   applyTheme(storedTheme === 'light' ? 'light' : 'dark');
   document.getElementById('themeToggle').addEventListener('click', () => {
@@ -598,23 +737,27 @@
   window.addEventListener('offline', updateNetwork);
   updateNetwork();
 
-  window.addEventListener('beforeinstallprompt', event => {
-    event.preventDefault();
-    installPrompt = event;
-    document.getElementById('installBtn').classList.add('visible');
+  const installButton = document.getElementById('installBtn');
+  const installHelp = document.getElementById('installHelp');
+  function isInstalledApp() { return window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true; }
+  function syncInstallButton() { installButton.classList.toggle('visible', !isInstalledApp()); }
+  function openInstallHelp() { installHelp.classList.add('show'); installHelp.setAttribute('aria-hidden','false'); document.getElementById('doneInstallHelp').focus(); }
+  function closeInstallHelp() { installHelp.classList.remove('show'); installHelp.setAttribute('aria-hidden','true'); installButton.focus(); }
+  syncInstallButton();
+  window.addEventListener('beforeinstallprompt', event => { event.preventDefault(); installPrompt = event; syncInstallButton(); });
+  installButton.addEventListener('click', async () => {
+    if (installPrompt) {
+      installPrompt.prompt();
+      const result = await installPrompt.userChoice;
+      if (result.outcome === 'accepted') showToast('SUARA sedang dipasang.');
+      installPrompt = null; syncInstallButton(); return;
+    }
+    openInstallHelp();
   });
-  document.getElementById('installBtn').addEventListener('click', async () => {
-    if (!installPrompt) return;
-    installPrompt.prompt();
-    const result = await installPrompt.userChoice;
-    if (result.outcome === 'accepted') showToast('Permintaan pemasangan aplikasi diterima.');
-    installPrompt = null;
-    document.getElementById('installBtn').classList.remove('visible');
-  });
-  window.addEventListener('appinstalled', () => {
-    document.getElementById('installBtn').classList.remove('visible');
-    showToast('SUARA berhasil dipasang sebagai aplikasi.');
-  });
+  document.getElementById('closeInstallHelp').addEventListener('click', closeInstallHelp);
+  document.getElementById('doneInstallHelp').addEventListener('click', closeInstallHelp);
+  installHelp.addEventListener('click', event => { if (event.target === installHelp) closeInstallHelp(); });
+  window.addEventListener('appinstalled', () => { syncInstallButton(); showToast('SUARA berhasil dipasang.'); });
 
   if ('serviceWorker' in navigator && (location.protocol === 'https:' || location.hostname === 'localhost' || location.hostname === '127.0.0.1')) {
     window.addEventListener('load', () => {
