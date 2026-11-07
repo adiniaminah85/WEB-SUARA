@@ -1,9 +1,9 @@
 {
   "id": "./",
-  "name": "SUARA — Partisipasi Publik",
+  "name": "SUARA — Public Participation",
   "short_name": "SUARA",
-  "description": "Ruang partisipasi publik dalam pembentukan kebijakan.",
-  "lang": "id-ID",
+  "description": "A public participation platform for policy-making.",
+  "lang": "en",
   "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",
