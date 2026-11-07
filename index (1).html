@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#100d0e">
+  <meta name="description" content="SUARA — Public participation in policy-making.">
+  <meta name="color-scheme" content="dark light">
+  <title>SUARA — Public Participation</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="assets/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/icon-192.png">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+
+<section class="login-screen" id="loginScreen" aria-labelledby="loginTitle">
+  <form class="login-card" id="loginForm" autocomplete="on">
+    <div class="login-brand"><div class="brand-mark" aria-hidden="true">⚖</div><div><div class="brand-name">SU<span>ARA</span></div><p>Public Participation Platform</p></div></div>
+    <p class="login-kicker">WELCOME</p><h1 id="loginTitle">Sign in to SUARA</h1>
+    <p class="login-intro">Enter your details to access the public participation space.</p>
+    <div class="login-field"><label for="loginName">Full name</label><input id="loginName" name="name" type="text" autocomplete="name" maxlength="80" placeholder="Enter your full name" required></div>
+    <div class="login-field"><label for="loginNik">National Identity Number (NIK)</label><input id="loginNik" name="nik" type="text" inputmode="numeric" autocomplete="off" maxlength="16" minlength="16" pattern="[0-9]{16}" placeholder="16-digit NIK" aria-describedby="nikHelp" required><small id="nikHelp">Enter 16 digits. Your NIK is checked only in this session and is not saved.</small></div>
+    <div class="login-field"><label for="loginAge">Age</label><input id="loginAge" name="age" type="number" min="1" max="120" inputmode="numeric" placeholder="Enter your age" required></div>
+    <label class="login-consent"><input id="loginConsent" type="checkbox" required><span>I confirm that the information provided is accurate and agree to continue.</span></label>
+    <button class="btn btn-primary login-submit" type="submit">Continue <span>→</span></button>
+    <p class="login-privacy">Privacy note: this is a demonstration sign-in screen, not official identity verification. Do not use a real NIK until a secure server and privacy safeguards are implemented.</p>
+    <p class="login-error" id="loginError" role="alert"></p>
+  </form>
+</section>
+<div class="app-shell" id="appShell">
+  <aside class="sidebar" aria-label="Navigasi aplikasi">
+    <div class="brand">
+      <div class="brand-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v17M5 6h14M7 6l-4 8h8L7 6Zm10 0-4 8h8l-4-8ZM8 21h8M9 18h6"/></svg></div>
+      <div><div class="brand-name">SU<span>ARA</span></div><div class="brand-caption">System for Public Voice, Representation, and Accountability</div></div>
+    </div>
+    <div class="nav-label">MAIN MENU</div>
+    <nav class="nav">
+      <button class="nav-btn active" data-page="dashboard" aria-current="page"><span class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1h-5v-7h-6v7H4a1 1 0 0 1-1-1z"/></svg></span><span>Dashboard</span></button>
+      <button class="nav-btn" data-page="kebijakan"><span class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3h8l5 5v13H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2Z"/><path d="M15 3v6h5M9 13h7M9 17h7"/></svg></span><span>Policy Proposals</span></button>
+      <button class="nav-btn" data-page="aspirasi"><span class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8A8.5 8.5 0 0 1 8.7 3.9a8.4 8.4 0 0 1 3.8-.9h.5a8.5 8.5 0 0 1 8 8v.5Z"/></svg></span><span>Public Voices</span></button>
+      <button class="nav-btn" data-page="review"><span class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4.5 6v5.5c0 5 3.2 8.2 7.5 9.5 4.3-1.3 7.5-4.5 7.5-9.5V6L12 3Z"/><path d="m8.5 12 2.2 2.2 4.8-5"/></svg></span><span>Draft Review</span></button>
+      <button class="nav-btn" data-page="tracking"><span class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span><span>Public Tracking</span></button>
+    </nav>
+    <div class="sidebar-bottom">
+      <div class="side-quote"><div class="side-quote-mark">“</div><p>Meaningful participation starts with access to information and the opportunity to be heard.</p></div>
+    </div>
+  </aside>
+
+  <main>
+    <header class="topbar">
+      <div class="topbar-left">
+        <div class="mobile-brand"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v17M5 6h14M7 6l-4 8h8L7 6Zm10 0-4 8h8l-4-8ZM8 21h8"/></svg>SU<span>ARA</span></div>
+        <div class="breadcrumb"><span>SUARA</span><span>›</span><strong id="pageTitle">Dashboard</strong></div>
+      </div>
+      <div class="topbar-tools">
+        <span class="account-chip" id="accountName">Guest</span><button class="logout-btn" id="logoutBtn" type="button">Sign out</button>
+        <div class="status-pill" id="networkStatus" title="Connection status"><span class="status-dot"></span><span id="networkText">Online</span></div>
+        <button class="icon-btn" id="voiceToggle" type="button" aria-label="Turn off welcome audio" title="Welcome audio is on"><svg id="voiceIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H3v6h3l5 4V5Z"/><path d="M15.5 8.5a5 5 0 0 1 0 7m3-10a9 9 0 0 1 0 13"/></svg></button>
+        <button class="icon-btn" id="themeToggle" type="button" aria-label="Toggle theme" title="Toggle theme"><svg id="themeIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v2m0 14v2M5.6 5.6 7 7m10 10 1.4 1.4M3 12h2m14 0h2M5.6 18.4 7 17m10-10 1.4-1.4"/><circle cx="12" cy="12" r="4"/></svg></button>
+        <button class="install-btn visible" id="installBtn" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m-5-5 5 5 5-5M5 17v3h14v-3"/></svg><span>Install</span></button>
+      </div>
+    </header>
+
+    <section id="dashboard" class="page active" aria-labelledby="heroTitle">
+      <div class="hero">
+        <div class="hero-content">
+          <div class="eyebrow">PUBLIC PARTICIPATION</div>
+          <h1 id="heroTitle">Welcome<br>to <span>SUARA.</span></h1>
+          <p class="hero-copy">Share your views, follow policy-making, and take part in public oversight.</p>
+          <div class="hero-actions"><button class="btn btn-primary" data-go="aspirasi">Submit a voice <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></button><button class="btn btn-secondary" data-go="kebijakan">View proposals</button></div>
+        </div>
+      </div>
+      <div class="content-wrap">
+        <div class="section-head"><div><p class="section-kicker">PARTICIPATION</p><h2>Get started</h2><p>Choose a SUARA service to continue.</p></div></div>
+        <div class="service-grid">
+          <button class="service-card" data-go="kebijakan"><span class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3h8l5 5v13H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2Z"/><path d="M15 3v6h5M9 13h7M9 17h7"/></svg></span><h3>Policy Proposals</h3><p>Explore proposal details, objectives, and documents.</p><span class="card-arrow">↗</span></button>
+          <button class="service-card" data-go="aspirasi"><span class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8A8.5 8.5 0 0 1 8.7 3.9a8.4 8.4 0 0 1 3.8-.9h.5a8.5 8.5 0 0 1 8 8v.5Z"/></svg></span><h3>Public Voices</h3><p>Share opinions, feedback, and suggestions on public policy.</p><span class="card-arrow">↗</span></button>
+          <button class="service-card" data-go="review"><span class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4.5 6v5.5c0 5 3.2 8.2 7.5 9.5 4.3-1.3 7.5-4.5 7.5-9.5V6L12 3Z"/><path d="m8.5 12 2.2 2.2 4.8-5"/></svg></span><h3>Draft Review</h3><p>Review revised drafts and assess how public input is reflected.</p><span class="card-arrow">↗</span></button>
+          <button class="service-card" data-go="tracking"><span class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span><h3>Public Tracking</h3><p>Explore the stages and follow the policy process.</p><span class="card-arrow">↗</span></button>
+        </div>
+
+      </div>
+    </section>
+
+    <section id="kebijakan" class="page" aria-labelledby="policyTitle">
+      <div class="page-inner">
+        <div class="page-heading"><p class="section-kicker">PUBLIC INFORMATION</p><h1 id="policyTitle">Policy Proposals</h1><p class="page-intro">Explore policy proposals, objectives, documents, and public consultation schedules.</p></div>
+        <div class="two-col">
+          <div class="panel empty-state">
+            <div class="empty-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3h8l5 5v13H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2Z"/><path d="M15 3v6h5M9 13h7M9 17h5"/></svg></div>
+            <h3>No policy proposals yet</h3>
+            <p>Proposals and documents will appear here once published by the administrator.</p>
+            <button class="btn btn-primary" data-go="aspirasi">Submit general feedback <span>→</span></button>
+          </div>
+          <details class="mobile-disclosure"><summary>Information available for each proposal</summary><div class="info-card"><p>Each proposal may include the following information to help the public understand the subject under discussion.</p><ul><li>Proposal title and summary.</li><li>Proposing institution or party.</li><li>Objectives and regulatory scope.</li><li>Draft documents and supporting academic paper.</li><li>Consultation schedule and feedback deadline.</li><li>Discussion status and follow-up.</li></ul></div></details>
+        </div>
+      </div>
+    </section>
+
+    <section id="aspirasi" class="page" aria-labelledby="aspirationTitle">
+      <div class="page-inner">
+        <div class="page-heading"><p class="section-kicker">PUBLIC VOICE</p><h1 id="aspirationTitle">Public Voices</h1><p class="page-intro">Share opinions, concerns, or suggestions on a policy proposal. Write clearly so the issue and your recommendation can be understood.</p></div>
+        <div class="two-col">
+          <form class="panel" id="aspirationForm">
+            <h2>Submit your input</h2><p class="panel-subtitle">Fields marked * are required.</p>
+            <div class="form-grid">
+              <div class="field"><label for="nama">Name / initials <span class="optional">Optional</span></label><input id="nama" name="nama" maxlength="70" placeholder="e.g. Alex or A.N."></div>
+              <div class="field"><label for="topik">Topic *</label><select id="topik" name="topik" required><option value="">Select a topic</option><option>Education</option><option>Environment</option><option>Public services</option><option>Employment</option><option>Healthcare</option><option>Economy</option><option>Law and human rights</option><option>Other</option></select></div>
+              <div class="field full"><label for="judulVoice">Short title *</label><input id="judulVoice" name="judul" required maxlength="100" placeholder="Summarize your main point in one sentence"></div>
+              <div class="field full"><label for="isi">Your message *</label><textarea id="isi" name="isi" required minlength="20" maxlength="2000" placeholder="Describe the issue, affected people or groups, and your proposed solution..."></textarea><div class="field-help"><span>At least 20 characters. Maximum 2,000 characters.</span><span id="charCount">0 / 2,000</span></div></div>
+            </div>
+            <label class="check-row"><input type="checkbox" id="confirmLocal" required><span>I understand that this input is stored only in this browser/device and is not sent to a government institution or policy-maker.</span></label>
+            <div class="form-actions"><button class="btn btn-primary" type="submit">Save input <span>→</span></button><button class="btn btn-quiet" type="reset">Clear form</button></div>
+            <div class="notice"><strong>Data protection:</strong> Do not include your national ID number, full address, phone number, password, or confidential information. Use a pseudonym if needed.</div>
+          </form>
+          <aside class="page-extras">
+            <details class="mobile-disclosure"><summary>Tips for writing effective input</summary><div class="info-card"><ul><li>Describe the issue specifically.</li><li>Explain its impact on the community.</li><li>Offer a realistic suggestion within the policy-maker’s authority.</li><li>Use clear and respectful language.</li></ul></div></details>
+            <details class="mobile-disclosure"><summary>Saved submissions</summary><div class="panel"><p class="panel-subtitle">Submissions saved in this browser/device.</p><div id="aspirationHistory" class="entry-list"><p class="panel-subtitle">No submissions saved yet.</p></div></div></details>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section id="review" class="page" aria-labelledby="reviewTitle">
+      <div class="page-inner">
+        <div class="page-heading"><p class="section-kicker">PUBLIC REVIEW</p><h1 id="reviewTitle">Draft Review</h1><p class="page-intro">After the policy-making institution responds and revises the proposal, the updated draft can be presented to the public to assess whether it reflects submitted input.</p></div>
+        <div class="two-col">
+          <div class="panel">
+            <h2>Review the revised draft</h2><p class="panel-subtitle">Use the options below to record how well the policy draft reflects public input.</p>
+            <div class="comparison"><div class="comparison-box"><span>BEFORE REVISION</span><p>The initial draft is not available.</p></div><div class="comparison-box"><span>AFTER REVISION</span><p>The revised draft is not available.</p></div></div>
+            <form id="reviewForm">
+              <div class="field"><label for="penilaian">Assessment *</label><select id="penilaian" required><option value="">Select an assessment</option><option>Fully reflects public input</option><option>Some public input has been considered</option><option>Does not yet reflect public input</option></select></div>
+              <div class="field"><label for="catatan">Public comments <span class="optional">Optional</span></label><textarea id="catatan" maxlength="1500" placeholder="Explain your assessment, what has been addressed, or what still needs improvement..."></textarea></div>
+              <label class="check-row"><input id="reviewConfirm" type="checkbox" required><span>I understand that this review is stored only in this browser/device and is not sent to the relevant institution.</span></label>
+              <div class="form-actions"><button class="btn btn-primary" type="submit">Save review <span>→</span></button><button class="btn btn-quiet" type="reset">Reset</button></div>
+            </form>
+            <div class="notice" id="reviewMessage">In the proposed process, public review takes place before policy enactment.</div>
+          </div>
+          <aside class="page-extras"><details class="mobile-disclosure"><summary>Saved reviews</summary><div class="panel"><p class="panel-subtitle">Reviews saved in this browser/device.</p><div id="reviewHistory" class="entry-list"><p class="panel-subtitle">No reviews saved yet.</p></div></div></details></aside>
+        </div>
+      </div>
+    </section>
+
+    <section id="tracking" class="page" aria-labelledby="trackingTitle">
+      <div class="page-inner">
+        <div class="page-heading"><p class="section-kicker">PROCESS TRANSPARENCY</p><h1 id="trackingTitle">Public Tracking</h1><p class="page-intro">Explore the eight stages of policy-making. Implementation updates will appear when published by the administrator.</p></div>
+        <div class="tracking-status"><span class="status-dot" aria-hidden="true"></span><div><strong>No status updates yet</strong><p>There are currently no policy proposals available to track.</p></div></div>
+        <section class="process-panel tracking-process" aria-labelledby="processTitle">
+          <div class="process-top"><div><p class="section-kicker">PARTICIPATION PROCESS</p><h2 id="processTitle">The eight SUARA stages</h2><p>Select a stage to read its description.</p></div></div>
+          <div class="timeline" id="timeline">
+            <button class="stage" type="button" data-stage="0"><span class="stage-num">01</span><span class="stage-ico">▤</span><strong>Policy Registration</strong></button>
+            <button class="stage" type="button" data-stage="1"><span class="stage-num">02</span><span class="stage-ico">♧</span><strong>Public Impact Mapping</strong></button>
+            <button class="stage" type="button" data-stage="2"><span class="stage-num">03</span><span class="stage-ico">☏</span><strong>Public Consultation</strong></button>
+            <button class="stage" type="button" data-stage="3"><span class="stage-num">04</span><span class="stage-ico">▥</span><strong>AI-Based Analysis</strong></button>
+            <button class="stage" type="button" data-stage="4"><span class="stage-num">05</span><span class="stage-ico">⚒</span><strong>Legislative Response</strong></button>
+            <button class="stage" type="button" data-stage="5"><span class="stage-num">06</span><span class="stage-ico">☑</span><strong>Public Review &amp; Validation</strong></button>
+            <button class="stage" type="button" data-stage="6"><span class="stage-num">07</span><span class="stage-ico">▤</span><strong>Policy Enactment</strong></button>
+            <button class="stage" type="button" data-stage="7"><span class="stage-num">08</span><span class="stage-ico">⌕</span><strong>Public Tracking</strong></button>
+          </div>
+          <div class="stage-detail" id="stageDetail" aria-live="polite"><h3 id="stageTitle"></h3><p id="stageText"></p></div>
+        </section>
+      </div>
+    </section>
+  </main>
+</div>
+
+
+<div class="install-overlay" id="installHelp" aria-hidden="true">
+  <section class="install-sheet" role="dialog" aria-modal="true" aria-labelledby="installHelpTitle">
+    <button class="install-close" id="closeInstallHelp" type="button" aria-label="Close instructions">×</button>
+    <div class="install-sheet-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m-5-5 5 5 5-5M5 17v3h14v-3"/></svg></div>
+    <h2 id="installHelpTitle">Install SUARA on your device</h2>
+    <p>To install SUARA using Chrome:</p>
+    <ol><li>Open the <strong>⋮</strong> in Chrome.</li><li>Select <strong>Install app</strong> atau <strong>Add to Home screen</strong>.<li>Follow the on-screen instructions to finish.</li></ol>
+    <p class="install-hint">Open SUARA using an HTTPS address or localhost to enable installation and offline features.</p>
+    <button class="btn btn-primary install-done" id="doneInstallHelp" type="button">Got it</button>
+  </section>
+</div>
+
+<nav class="mobile-nav" aria-label="Navigasi bawah">
+  <button class="active" data-page="dashboard"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1h-5v-7h-6v7H4a1 1 0 0 1-1-1z"/></svg><span>Home</span></button>
+  <button data-page="kebijakan"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3h8l5 5v13H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2Z"/><path d="M15 3v6h5M9 13h7"/></svg><span>Proposals</span></button>
+  <button data-page="aspirasi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8A8.5 8.5 0 0 1 8.7 3.9a8.4 8.4 0 0 1 3.8-.9h.5a8.5 8.5 0 0 1 8 8v.5Z"/></svg><span>Voice</span></button>
+  <button data-page="review"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4.5 6v5.5c0 5 3.2 8.2 7.5 9.5 4.3-1.3 7.5-4.5 7.5-9.5V6L12 3Z"/><path d="m8.5 12 2.2 2.2 4.8-5"/></svg><span>Review</span></button>
+  <button data-page="tracking"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span>Tracking</span></button>
+</nav>
+<div class="toast" id="toast" role="status" aria-live="polite"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 4 4L19 6"/></svg><span id="toastText">Saved.</span></div>
+
+<script src="./app.js" defer></script>
+</body>
+</html>
