@@ -1,7 +1,9 @@
-const CACHE_NAME = 'suara-pwa-v1.2.0';
+const CACHE_NAME = 'suara-pwa-v1.2.1';
 const CORE_ASSETS = [
   './',
   './index.html',
+  './styles.css',
+  './app.js',
   './manifest.webmanifest',
   './assets/icon.svg',
   './assets/icon-192.png',
